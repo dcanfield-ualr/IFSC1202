@@ -1,3 +1,4 @@
-N = int(input("Number of Students: "))
-K = int(input("Number of Apples: "))
-print(K/N) 
+n = int(input("Number of Students: "))
+k = int(input("Number of Apples: "))
+print(k//n)
+print(k%n)
