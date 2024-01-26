@@ -5,4 +5,4 @@ one = num % 10
 #create variable ten and assign value of input after floor division
 ten = num // 10
 #print & swap values 
-print(one,ten)
+print("Swapped Number:",one,ten)
