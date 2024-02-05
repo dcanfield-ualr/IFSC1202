@@ -5,10 +5,10 @@ num2 = int(input("Enter Second Number: "))
 num3 = int(input("Enter Third Number: "))
 
 # Arrange the numbers in ascending order
-sorted_numbers = sorted([num1, num2, num3])
+sorted = sorted([num1, num2, num3])
 
 # Print the sorted numbers
-print(sorted_numbers[0], sorted_numbers[1], sorted_numbers[2])
+print(sorted[0], sorted[1], sorted[2])
 
 # Arrange the numbers in ascending order using if statements
 if num1 <= num2 and num1 <= num3:
