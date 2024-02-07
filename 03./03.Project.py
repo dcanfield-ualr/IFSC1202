@@ -14,4 +14,18 @@ num1 = float(input("Enter First Number: "))
 operator = input("Enter Operator (+,-,*,/): ")
 num2 = float(input("Enter Second Number: "))
 
-print(num1, operator, num2, "=", (num1+num2))
+# Perform the calculation based on the operator
+if operator == '+':
+    result = num1 + num2
+    print(num1, "+", num2, "=", result)
+elif operator == '-':
+    result = num1 - num2
+    print(num1, "-", num2, "=", result)
+elif operator == '*':
+    result = num1 * num2
+    print(num1, "*", num2, "=", result)
+elif operator == '/':
+    result = num1 / num2
+    print(num1, "/", num2, "=", result)
+else:
+    print("Invalid Operator")
