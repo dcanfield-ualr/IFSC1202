@@ -4,8 +4,11 @@
 #Don't use math module in this exercise.
 
 num = int(input("Enter Number: "))
+#Create result as 1. 0*a=0
 result = 1
 
+#i = current iteration starting at 0
+#i+=i for each loop
 for i in range(num):
-    result *=  (i+1)   
+    result *= (i+1)   
 print(result)

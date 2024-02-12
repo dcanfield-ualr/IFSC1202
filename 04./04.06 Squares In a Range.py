@@ -3,14 +3,13 @@
 #There are no spaces around * and =.
 #You can use either the sep= argument of the print() statement or the .format method.
 
-# Read the integer N
-N = int(input("Enter N: "))
-num = 1
-sum = 0
+# Read the integer Num
+numA = int(input("Enter A: "))
+numB = int(input("Enter B: "))
 
-for i in range(1, N+1): 
-    num *= i
-    print(num)
-    sum += num
-    print(sum)
-print("Sum of Factorials: ",sum)
+#numA = current iteration starting at 0
+#numA+=numA for each loop
+#for loop stops numB-1 ensure to +1
+for numA in range(numB+1): 
+    print(numA, numB)
+    print(numA,"*",numA,"=",numA*numA)
