@@ -5,14 +5,12 @@ Hint: For a given value N, Loop from 2 to (half of N) + 1 and check to see if an
 """
 start = int(input("Enter Start of Range: "))
 end = int(input("Enter End of Range: "))
-
+#creates title for following data set
 print("Prime numbers between",start,"and",end)
-
+#runs loop within user defined range (remember for stops before max value)
 for num in range(start, end + 1):
-    if num > 1:
-        prime = True
-        for i in range(2,(num**0.5) + 1):
-            if num % i == 0:
-                prime = False
-        if prime:
+    for i in range(2,int(num**0.5) + 1):
+        if num % i == 0:
+            break
+    else:
             print(num)
