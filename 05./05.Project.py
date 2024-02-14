@@ -13,7 +13,7 @@ end = int(input("Enter the end of the range: "))
 print("Special numbers between",start,"and",end)
 
 for num in range(start, end + 1):
-    total = 0
+    sum = 0
     num_digits = 0
     
     # Calculate the number of digits
@@ -26,8 +26,8 @@ for num in range(start, end + 1):
     temp = num
     while temp != 0:
         digit = temp % 10
-        total += digit ** num_digits
+        sum += digit ** num_digits
         temp //= 10
     #validate and print special number
-    if total == num:
+    if sum == num:
         print(num)
