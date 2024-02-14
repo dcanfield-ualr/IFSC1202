@@ -6,3 +6,30 @@ Hint: First determine the number of digits using a while loop and reminder divis
 Hint: Recalculate the value using the power from above and see if you get the original value
 Do not use the len function to determine the number of digits.
 """
+
+start = int(input("Enter the start of the range: "))
+end = int(input("Enter the end of the range: "))
+
+print(f"Special numbers between {start} and {end}:")
+
+for num in range(start, end + 1):
+    original_num = num
+    total = 0
+    num_digits = 0
+    
+    # Calculate the number of digits
+    temp = num
+    while temp:
+        temp //= 10
+        num_digits += 1
+    
+    # Calculate the sum of digits raised to the power of the number of digits
+    temp = num
+    while temp:
+        digit = temp % 10
+        total += digit ** num_digits
+        temp //= 10
+    
+    # Check if the number is special
+    if total == original_num:
+        print(original_num)

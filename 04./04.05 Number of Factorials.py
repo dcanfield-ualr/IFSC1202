@@ -17,3 +17,5 @@ for i in range(N):
     #add to sum
     sum += num
 print("Sum of Factorials: ",sum)
+
+is_prime
