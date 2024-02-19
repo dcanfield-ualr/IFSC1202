@@ -14,3 +14,5 @@ Opens and reads the 06.01 Radius.txt file
 Calculates and prints the radius, diameter, circumference, and area on a line. (each value is 15 columns wide, 5 decimal digits, and a space seperating each column.
 Print headings that right align with the data.
 """
+
+open "06.01 Radius.txt"
