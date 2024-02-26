@@ -7,72 +7,39 @@ At this point, open 06.Project Merge File.txt, copying lines from 06.Project Mer
 At the end of 06.Project Merge File.txt, continue copying lines from 06.Project Input File.txt to 06.Project Output File.txt line by line. Keep a count of the number of input records and output records.
 Close all files
 Print the number of records in the input file, merge file, and output file.
-"""
+"""     
+# Open and read from the input file
+input_file = open("06./06.Project/06.Project Input File.txt", "r")     
+output_file = open("06./06.Project/06.Project Output File.txt", "w")
+input_records = 0
+merge_records = 0
+output_records = 0
 
-# The name of the file can be a string
-#inputfilename = "06./06.Project/06.Project Input File.txt"
-#mergefilename = "06./06.Project/06.Project Merge File.txt"
-#outputfilename = "06./06.Project/06.Project Output File.txt"
-recordcount = 0
-# Open the input file for reading
-inputfile = open("06./06.Project/06.Project Input File.txt", 'r')
-# Open the merge file for reading
-mergefile = open("06./06.Project/06.Project Merge File.txt", 'r')
-# Open the output file for writing
-outputfile = open("06./06.Project/06.Project Output File.txt", 'w')
-# Read the first line of the input file
+line = input_file.readline()
 
-#debug
-# Read the entire contents of the file into a single string
-i = inputfile.read()
-# Print the contents - Note the embedded linefeeds
-print(i)
-# Close the file
-inputfile.close()
-
-# Read the entire contents of the file into a single string
-m = mergefile.read()
-# Print the contents - Note the embedded linefeeds
-print(m)
-# Close the file
-mergefile.close()
-# Read the entire contents of the file into a single string
-o = outputfile.read()
-# Print the contents - Note the embedded linefeeds
-print(o)
-# Close the file
-outputfile.close()
-
-
-
-
-print(inputfile)
-line = inputfile.readline()
-# Read until the input is empty
 while line != "**Insert Merge File Here**":
-# Write to the output file
-# Note that line already contains a linefeed character,
-# so we don't have to add one when we write it.
-     outputfile.write(line)
-     recordcount += 1
-# Read the next line of the input file
-     line = inputfile.readline()
-if line == "**Insert Merge File Here**":
-     merge = mergefile.readline()
-     while merge != "":
-        outputfile.write(line)
-        recordcount += 1
-        break
-#else:
-     #while line != "" or "**Insert Merge File Here**":
-# Write to the output file
-# Note that line already contains a linefeed character,
-# so we don't have to add one when we write it.
-          #outputfile.write(line)
-          #recordcount += 1
-# End of File on input file
+     output_file.write(line)
+     input_records += 1
+     output_records += 1
+     if line == "**Insert Merge File Here**":
+     # Open and read from the merge file
+          merge_file = open("06./06.Project/06.Project Merge File.txt", "r")
+          for merge_line in merge_file:
+               output_file.write(merge_line)
+               merge_records += 1
+               output_records += 1
+               merge_file.close()
+               # Continue copying lines from input file after merge
+               for remaining_line in input_file:
+                    output_file.write(remaining_line)
+                    input_records += 1
+                    output_records += 1
+                    break  # Stop reading input file after merge
+                
 # Close both files
-inputfile.close()
-mergefile.close()
-outputfile.close()
-print("{} records written".format(recordcount))
+input_file.close()
+merge_file.close()
+output_file.close()
+print("Number of input records:", input_records)
+print("Number of merge records:", merge_records)
+print("Number of output records:", output_records)
