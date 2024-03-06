@@ -12,22 +12,14 @@ def parseDegreeString(ddmmss):
     degrees = float(ddmmss[:degree_idx])
     minutes = float(ddmmss[degree_idx + 1:minute_idx])
     seconds = float(ddmmss[minute_idx + 1:second_idx])
-
     return degrees, minutes, seconds
 
 def DDMMSStoDecimal(degrees, minutes, seconds):
     decimal_degrees = degrees + (minutes/60) + (seconds/3600)
     return decimal_degrees
-
-# Read angles from input file
-#with open("input.txt", "r") as file:
-#    angles = file.readlines()
-
-# Convert angles to decimal degrees and write to output file
-#with open("output.txt", "w") as file:
     
 for line in input_file:
-    degrees, minutes, seconds = parseDegreeString(line.strip())
+    degrees, minutes, seconds = parseDegreeString(line)
     decimal_degrees = DDMMSStoDecimal(degrees, minutes, seconds)
     output_file.write(str(decimal_degrees))
     output_file.write("\n")
