@@ -8,38 +8,61 @@ At the end of 06.Project Merge File.txt, continue copying lines from 06.Project 
 Close all files
 Print the number of records in the input file, merge file, and output file.
 """     
-# Open and read from the input file
+# Open files and set appropriate read vs write variables
 input_file = open("06./06.Project/06.Project Input File.txt", "r")     
 output_file = open("06./06.Project/06.Project Output File.txt", "w")
+#set initial variables
 input_records = 0
 merge_records = 0
 output_records = 0
 
-line = input_file.readline()
+#iterate "read loop"
+for line in input_file:
+     #check if line is insertion prompt ensure newline is included
+     if line == "**Insert Merge File Here**\n":
+          #open file and set read variable
+          merge_file = open("06./06.Project/06.Project Merge File.txt", "r")
+          #iterate "read loop"
+          for merge_line in merge_file:
+               #write input(merge) to output file and append records
+               output_file.write(merge_line)
+               merge_records += 1
+               output_records += 1
+          #remember to add newline if not included from input
+          output_file.write("\n")
+          merge_file.close()
+     else:
+          #write input(input) to output file and append records            
+          output_file.write(line)
+          input_records += 1
+          output_records += 1
+# Close both files
+input_file.close()
+output_file.close()
+print("Number of input records:", input_records)
+print("Number of merge records:", merge_records)
+print("Number of output records:", output_records)
 
-while line != "**Insert Merge File Here**":
+
+
+"""
+#alternatively something like this 
+#line = input_file.readline()
+#while line != "**Insert Merge File here**\n":
      output_file.write(line)
      input_records += 1
      output_records += 1
-     if line == "**Insert Merge File Here**":
-     # Open and read from the merge file
+#while line == "**Insert Merge File Here**\n":
           merge_file = open("06./06.Project/06.Project Merge File.txt", "r")
           for merge_line in merge_file:
                output_file.write(merge_line)
                merge_records += 1
                output_records += 1
-               merge_file.close()
-               # Continue copying lines from input file after merge
-               for remaining_line in input_file:
-                    output_file.write(remaining_line)
-                    input_records += 1
-                    output_records += 1
-                    break  # Stop reading input file after merge
-                
-# Close both files
+          output_file.write("\n")
+          merge_file.close()
 input_file.close()
-merge_file.close()
 output_file.close()
 print("Number of input records:", input_records)
 print("Number of merge records:", merge_records)
-print("Number of output records:", output_records)
+print("Number of output records:", output_records)     
+"""
