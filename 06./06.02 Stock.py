@@ -11,14 +11,15 @@ Reads the next line of input
 Calculates and prints the stock value and the percent change from yesterday. Each column is 10 characters wide with a space between them.
 """
 
-
-Yprice = Tprice
-Tprice = ("06./06.02 Stock.txt"r)
-
-def percentchange(Tprice):
+def percentchange(Yprice,Tprice):
     return (Yprice-Tprice)/Yprice
-
+#create "header"
 print("{:^10s}{:^10s}".format("Price","Change"))
-print("{:8.1f}{:8.1f}".format(91.5, 66.4))
-print("{:8.1f}{:8.1f}".format(101.5, 55.4))
-print("{:8.1f}{:8.1f}".format(8.5, -4.4))
+# Open and read the Stock.txt file
+stock_file = open("06./06.02 Stock.txt")
+Tprice = 1
+Yprice = 1
+for num in stock_file:
+    Yprice = Tprice
+    Tprice = float(num)
+    print("{:^10}{:^10}".format(Tprice, percentchange(Yprice,Tprice)))
