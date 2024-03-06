@@ -14,6 +14,8 @@ Opens and reads the 06.01 Radius.txt file
 Calculates and prints the radius, diameter, circumference, and area on a line. (each value is 15 columns wide, 5 decimal digits, and a space seperating each column.
 Print headings that right align with the data.
 """
+import math
+
 print("{:>15s} {:>15s} {:>15s} {:>15s}".format("Radius", "Diameter", "Circumference", "Area"))
 def diameter(radius):
     return 2 * radius
@@ -23,27 +25,9 @@ def circumference(radius):
 
 def area(radius):
     return math.pi * radius ** 2
-print("{:>15s} {:>15s} {:>15s} {:>15s}".format("Radius", "Diameter", "Circumference", "Area"))
-def main():
-    # Open and read the Radius.txt file
-    file = open("06./06.01 Radius.txt")
-    radius = float(file.readline())
-    print("Radius:", radius)
-    print("Diameter:", diameter(radius))
-    print("Circumference:", circumference(radius))
-    print("Area:", area(radius))
 
-print("{:>15.5f} {:>15.5f} {:>15.5f} {:>15.5f}".format(radius, diameter(radius), c, a))
-
-# Open a file for reading
-demotextfile = open("06./06.00./06.00.00 DemoText.txt")
-# Read the first line of the file
-x = demotextfile.readline()
-# End of file is indicated when the input is empty
-while x != "":
-# Print the contents - Note the embedded linefeeds
-	print(x)
-# Read the next line of the file
-	x = demotextfile.readline()
-# Close the file
-demotextfile.close()
+# Open and read the Radius.txt file
+file = open("06./06.01 Radius.txt")
+for num in file:
+    radius = float(num)
+    print("{:>15.5f} {:>15.5f} {:>15.5f} {:>15.5f}".format(radius, diameter(radius), circumference(radius), area(radius)))
