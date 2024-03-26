@@ -14,15 +14,15 @@ If both cities where found, display the From City, To City, and the Distance.
 """
 # Read the distances between cities from the CSV file
 distances = []
-with open("09./09.Project/09.Project Distances.csv", 'r') as file:
-    for line in file:
-        distances.append(line.strip().split(','))
+file = open("09./09.Project/09.Project Distances.csv", 'r')
+for line in file:
+    distances.append(line.strip().split(','))
 
 # Print the distance table with right-aligned columns
 for row in distances:
     row_str = ""
     for cell in row:
-        row_str += cell.rjust(15)  # Adjust the width as needed
+        row_str += cell.rjust(10)  # Adjust the width as needed
     print(row_str)
     
 # Prompt for From City
@@ -32,18 +32,18 @@ for i, city in enumerate(distances):
     if city[0] == from_city:
         from_index = i
         break
-
+#Error Message
 if from_index is None:
     print("Invalid From City")
 else:
-    # Prompt for To City
+# Prompt for To City
     to_city = input("Enter To City: ")
     to_index = None
     for i, city in enumerate(distances[0]):
         if city == to_city:
             to_index = i
             break
-    
+#Error Message
     if to_index is None:
         print("Invalid To City")
     else:
