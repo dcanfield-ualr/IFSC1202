@@ -33,7 +33,7 @@ while True:
 
 # Print the section of text that contains the search term along with the line number
             for j in range(start_line, end_line+1):
-                print(f"Line {j}: {constitution_lines[j]}")
+                print("Line", j,":",constitution_lines, j)
                 
 # Skip to the end of the section
             i = end_line
