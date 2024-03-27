@@ -41,14 +41,14 @@ for line in file:
 
 # Initialize a two dimensional list called "zipcodes" to store zipcode data
 zipcodes = []
-
 # Loop through all rows in the properties list
 for prop_data in properties:
-    zip_code = prop_data[3]
+#removed for more direct comparison
+#zip_code = prop_data[3] #price = prop_data[4]
     found = False
 # Loop through rows in the zipcodes list
     for zip_data in zipcodes:
-        if zip_data[0] == zip_code:
+        if zip_data[0] == prop_data[3]:
 # Increment the count of properties and add price to sum
             zip_data[1] += 1
             zip_data[2] += prop_data[4]
@@ -56,15 +56,14 @@ for prop_data in properties:
             break
     if not found:
 # If no match found, append a new row to zipcodes where column0=zipcode, column1=1, column2=price 
-        zipcodes.append([zip_code, 1, prop_data[4]])
+        zipcodes.append([prop_data[3], 1, prop_data[4]])
 
 # Print headings of the report
-print("    Zipcode   Count      Average")
+print("\tZipcode\tCount  \t  Average")
 
 # Loop through zipcodes list and print data
 for zip_data in zipcodes:
-    zip_code = zip_data[0]
-    count = zip_data[1]
-    total_price = zip_data[2]
-    average_price = total_price / count
-    print(f"     {zip_code : >1}      {count : >2}    ${average_price:>5,.2f}")
+#removed for more direct approach
+#zip_code = zip_data[0] #count = zip_data[1] #total_price = zip_data[2]
+    average_price = zip_data[2] / zip_data[1]
+    print(f"\t {zip_data[0] : >1} \t  {zip_data[1] : >2}\t${average_price:>1,.2f}")
