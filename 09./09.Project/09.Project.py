@@ -12,9 +12,10 @@ If the From City was not found, then display "Invalid From City".
 If the To City was not found, then display "Invalid To City".
 If both cities where found, display the From City, To City, and the Distance.
 """
-# Read the distances between cities from the CSV file
+# Initialize a two dimensional list called distance to store data
 distances = []
 file = open("09./09.Project/09.Project Distances.csv", 'r')
+# Read the distances between cities from the CSV file
 for line in file:
     distances.append(line.strip().split(','))
 
@@ -22,7 +23,7 @@ for line in file:
 for row in distances:
     row_str = ""
     for cell in row:
-        row_str += cell.rjust(10)  # Adjust the width as needed
+        row_str += cell.rjust(10)
     print(row_str)
     
 # Prompt for From City
