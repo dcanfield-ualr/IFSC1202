@@ -20,11 +20,11 @@ for line in file:
     distances.append(line.strip().split(','))
 
 # Print the distance table with right-aligned columns
-for row in distances:
-    row_str = ""
-    for cell in row:
-        row_str += cell.rjust(10)
-    print(row_str)
+for distances_data in distances:
+    data = ""
+    for distance in distances_data:
+        data += distance.rjust(10)
+    print(data)
     
 # Prompt for From City
 from_city = input("Enter From City: ")
